@@ -1,0 +1,16 @@
+<?php
+
+$cfg = [
+    'wl' => [
+        'clientId'     => '',
+        'clientSecret' => '',
+        'redirectUri'  => '',
+        'baseUrl'      => '',
+    ],
+    'fs' => [
+        'clientId'     => '',
+        'clientSecret' => '',
+        'redirectUri'  => '',
+        'baseUrl'      => '',
+    ]
+];
