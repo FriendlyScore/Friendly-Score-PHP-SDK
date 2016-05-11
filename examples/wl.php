@@ -1,7 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
-//require_once __DIR__.'/../src/FriendlyScore/OAuth2/Client/Provider/WhiteLabel.php';
+require_once __DIR__.'/inc.php';
 require_once __DIR__.'/cfg.php';
 
 $fs = new \FriendlyScore\OAuth2\Client\Provider\WhiteLabel([
