@@ -74,80 +74,66 @@ class BaseProvider extends AbstractProvider {
 		return $this;
 	}
 
-	public function send($method, $endpoint, $params) {
+	public function send($method, $endpoint, $params = []) {
+
+		if (strtoupper($method) === 'GET') {
+			$endpoint .= '?'.http_build_query($params);
+			$params    = [];
+		} else {
+			$params = [ 'body' => json_encode($params) ];
+		}
+
 		$request = $this->getAuthenticatedRequest(
 			$method,
 			$this->getBaseUrl().$endpoint,
 			$this->__access_token,
-			[
-				'body' => json_encode($params)
-			]
+			$params
 		);
 
 		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function calculateScore($params) {
-		$request = $this->getAuthenticatedRequest(
-			'POST',
-			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/calculate_score.json',
-			$this->__access_token,
-			[
-				'body' => json_encode($params)
-			]
+		return $this->send(
+			'POST', 
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/calculate_score.json',
+			$params
 		);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function getUser() {
-		$request = $this->getAuthenticatedRequest(
+		return $this->send(
 			'GET',
-			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/show.json',
-			$this->__access_token
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/show.json'
 		);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function getUserIpData() {
-		$request = $this->getAuthenticatedRequest(
+		return $this->send(
 			'GET',
-			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/show/ip-address-data.json',
-			$this->__access_token
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/show/ip-address-data.json'
 		);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function setPositive($positive) {
-		$request = $this->getAuthenticatedRequest(
+		return $this->send(
 			'PUT',
-			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/positive/'.($positive ? 1 : 0).'.json',
-			$this->__access_token
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/positive/'.($positive ? 1 : 0).'.json'
 		);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function setStatus($status, $status_description) {
-		$request = $this->getAuthenticatedRequest(
+		return $this->send(
 			'POST',
-			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/status.json',
-			$this->__access_token,
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/status.json',
 			[
-				'body' => json_encode([
-					'status'             => $status,
-					'status_description' => $status_description
-				])
+				'status'             => $status,
+				'status_description' => $status_description
 			]
 		);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function getUsers($page = null, $max_per_page = null) {
-
 		$params = [];
 
 		if ($page > 0) {
@@ -158,14 +144,10 @@ class BaseProvider extends AbstractProvider {
 			$params['max_results'] = $max_per_page;
 		}
 
-		$url = $this->getBaseUrl().'api/v2/users.json';
-
-		if (!empty($params)) {
-			$url .= '?'.http_build_query($params);
-		}
-
-		$request = $this->getAuthenticatedRequest('GET', $url, $this->__access_token);
-
-		return json_decode($this->getHttpClient()->send($request)->getBody());
+		return $this->send(
+			'GET',
+			'api/v2/users.json',
+			$params
+		);
 	}
 }
