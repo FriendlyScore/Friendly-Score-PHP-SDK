@@ -15,7 +15,7 @@ class BaseProvider extends AbstractProvider {
 	        , $__base_url = 'https://friendlyscore.com/';
 
 	public function setBaseUrl($v) {
-		$this->__base_url = $v;
+		$this->__base_url = preg_match('#/$#', $v) ? $v : $v.'/';
 		return $this;
 	}
 
