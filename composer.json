@@ -2,6 +2,7 @@
 	"name": "friendlyscore/oauth2-client",
 	"description": "This package provides OAuth2 client for FriendlyScore API. It is based on https://github.com/thephpleague/oauth2-client",
 	"type": "library",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Rafał Toboła",
