@@ -11,7 +11,7 @@ class FriendlyScore extends BaseProvider {
 			$this->__access_token
 		);
 
-		return json_decode($this->getHttpClient()->send($request)->getBody());
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function getUserDataPoints() {
@@ -21,7 +21,7 @@ class FriendlyScore extends BaseProvider {
 			$this->__access_token
 		);
 
-		return json_decode($this->getHttpClient()->send($request)->getBody());
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function getUserHeatMap() {
@@ -31,7 +31,7 @@ class FriendlyScore extends BaseProvider {
 			$this->__access_token
 		);
 
-		return json_decode($this->getHttpClient()->send($request)->getBody());
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
 
 }

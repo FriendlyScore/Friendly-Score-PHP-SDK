@@ -12,13 +12,27 @@ class BaseProvider extends AbstractProvider {
 	protected $__access_token
 	        , $__id
 	        , $__by
-	        , $__base_url = 'https://friendlyscore.com/';
+	        , $__base_url = 'https://friendlyscore.com/'
+            , $_json_decode_assoc = false;
 
 	public function setBaseUrl($v) {
 		$this->__base_url = preg_match('#/$#', $v) ? $v : $v.'/';
 		return $this;
 	}
 
+    public function setJsonDecodeAssoc($bool) {
+        $this->_json_decode_assoc = $bool;
+        return $this;
+    }
+
+    public function getJsonDecodeAssoc($bool) {
+        return $this->_json_decode_assoc;
+    }
+
+    public function jsonDecode($json) {
+        return json_decode($json, $this->_json_decode_assoc);
+    }
+ 
 	public function getBaseUrl() {
 
 		if (!$this->__base_url) {
@@ -90,7 +104,7 @@ class BaseProvider extends AbstractProvider {
 			$params
 		);
 
-		return json_decode($this->getHttpClient()->send($request)->getBody());
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
 
 	public function calculateScore($params) {
