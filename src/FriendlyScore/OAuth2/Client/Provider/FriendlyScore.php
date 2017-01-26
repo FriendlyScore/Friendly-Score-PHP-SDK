@@ -34,4 +34,13 @@ class FriendlyScore extends BaseProvider {
 		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
 
+	public function getMinFraudData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/show/min-fraud-data.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
 }
