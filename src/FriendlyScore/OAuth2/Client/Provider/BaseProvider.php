@@ -65,7 +65,10 @@ class BaseProvider extends AbstractProvider {
 		static $client = null;
 
 		if ($client === null) {
-			$client = new \GuzzleHttp\Client();
+			$client = new \GuzzleHttp\Client(['headers' => [ 
+				'Content-Type' => 'application/json',
+				'Accept'       => 'application/json',
+			]]);
 		}
 
 		return $client;
