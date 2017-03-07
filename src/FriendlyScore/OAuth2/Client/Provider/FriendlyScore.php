@@ -2,7 +2,7 @@
 
 namespace FriendlyScore\OAuth2\Client\Provider;
 
-class FriendlyScore extends BaseProvider {
+class FriendlyScore extends GeneralProvider {
 
 	public function getUserSocialData() {
 		$request = $this->getAuthenticatedRequest(

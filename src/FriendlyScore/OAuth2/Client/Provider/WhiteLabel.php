@@ -2,7 +2,7 @@
 
 namespace FriendlyScore\OAuth2\Client\Provider;
 
-class WhiteLabel extends BaseProvider {
+class WhiteLabel extends GeneralProvider {
 	protected $__base_url = null;
 
 	public function getScore($partner_user_id = null) {
