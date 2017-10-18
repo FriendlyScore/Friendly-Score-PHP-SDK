@@ -73,4 +73,92 @@ class GeneralProvider extends BaseProvider {
 			$params
 		);
 	}
+
+	public function getMinFraudData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/show/min-fraud-data.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGooglePlacesData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/places.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGoogleDobData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/days-of-birth.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGoogleSkillsData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/skills.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGooglePhonesData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/phones.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGoogleWorkPeriodsData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/work-periods.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGoogleUniversitiesData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/universities.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function getUserGoogleEmailsData() {
+		$request = $this->getAuthenticatedRequest(
+			'GET',
+			$this->getBaseUrl().'api/v2/users/'.$this->__by.'/'.$this->__id.'/google/raw-file-data/emails.json',
+			$this->__access_token
+		);
+
+		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
+	}
+
+	public function addUserPerformanceData($params) {
+		return $this->send(
+			'POST',
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/performance-data.json',
+			$params
+		);
+	}
 }

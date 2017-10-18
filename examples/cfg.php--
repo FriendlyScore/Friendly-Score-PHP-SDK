@@ -1,52 +1,52 @@
 <?php
 
 $cfg = [
-    'wl' => [
-        'clientId'     => '',
-        'clientSecret' => '',
-        'redirectUri'  => '',
-        'baseUrl'      => '',
-				'scoring'      => [
-					'access_tokens'     =>   [
-						'facebook' => ' -- token here -- '
-					],
-					'webhook'    => 'http://example.com/webhook.php?score-ready-for=test-partner-id',
-					'user_ip'    => '1.1.1.1',
-					'user_agent' => '{
-						"os" : "Linux",
-						"osVersion": "-",
-						"browser": "Chrome",
-						"browserMajorVersion": 50,
-						"browserVersion": "50.0.2661.75",
-						"mobile": false,
-						"flash": "no check",
-						"cookies": true,
-						"screenSize": "1920 x 1080"
-					}'
-				],
-    ],
-    'fs' => [
-        'clientId'     => '',
-        'clientSecret' => '',
-        'redirectUri'  => '',
-        'baseUrl'      => '',
-				'scoring'      => [
-					'access_tokens'     =>   [
-						'facebook' => ' -- token here -- '
-					],
-					'webhook'    => 'http://example.com/webhook.php?score-ready-for=test-partner-id',
-					'ip'         => '1.1.1.1',
-					'user_agent' => '{
-						"os" : "Linux",
-						"osVersion": "-",
-						"browser": "Chrome",
-						"browserMajorVersion": 50,
-						"browserVersion": "50.0.2661.75",
-						"mobile": false,
-						"flash": "no check",
-						"cookies": true,
-						"screenSize": "1920 x 1080"
-					}'
-				],
-    ]
+	'wl' => [
+		'clientId'     => '',
+		'clientSecret' => '',
+		'redirectUri'  => '',
+		'baseUrl'      => '',
+		'scoring'      => [
+			'access_tokens'     =>   [
+				'facebook' => ' -- token here -- '
+			],
+			'webhook'    => 'http://example.com/webhook.php?score-ready-for=test-partner-id',
+			'user_ip'    => '1.1.1.1',
+			'user_agent' => '{
+				"os" : "Linux",
+				"osVersion": "-",
+				"browser": "Chrome",
+				"browserMajorVersion": 50,
+				"browserVersion": "50.0.2661.75",
+				"mobile": false,
+				"flash": "no check",
+				"cookies": true,
+				"screenSize": "1920 x 1080"
+			}'
+		],
+	],
+	'fs' => [
+		'clientId'     => '',
+		'clientSecret' => '',
+		'redirectUri'  => '',
+		'baseUrl'      => '',
+		'scoring'      => [
+			'access_tokens'     =>   [
+				'facebook' => ' -- token here -- '
+			],
+			'webhook'    => 'http://example.com/webhook.php?score-ready-for=test-partner-id',
+			'ip'         => '1.1.1.1',
+			'user_agent' => '{
+				"os" : "Linux",
+				"osVersion": "-",
+				"browser": "Chrome",
+				"browserMajorVersion": 50,
+				"browserVersion": "50.0.2661.75",
+				"mobile": false,
+				"flash": "no check",
+				"cookies": true,
+				"screenSize": "1920 x 1080"
+			}'
+		],
+	]
 ];

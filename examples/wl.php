@@ -4,9 +4,9 @@ require_once __DIR__.'/inc.php';
 require_once __DIR__.'/cfg.php';
 
 $fs = new \FriendlyScore\OAuth2\Client\Provider\WhiteLabel([
-		'clientId'								=> $cfg['wl']['clientId'],
-		'clientSecret'						=> $cfg['wl']['clientSecret'],
-		'redirectUri'						 => $cfg['wl']['redirectUri'],
+		'clientId'     => $cfg['wl']['clientId'],
+		'clientSecret' => $cfg['wl']['clientSecret'],
+		'redirectUri'  => $cfg['wl']['redirectUri'],
 ]);
 
 try {
