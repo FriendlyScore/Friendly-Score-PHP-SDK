@@ -5,6 +5,8 @@ namespace FriendlyScore\OAuth2\Client\Provider;
 use FriendlyScore\OAuth2\Client\User\User;
 use League\OAuth2\Client\Provider\AbstractProvider;
 
+use FriendlyScore\OAuth2\Client\Exception\NoBaseUrlException;
+
 class BaseProvider extends AbstractProvider {
 	use \League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 
