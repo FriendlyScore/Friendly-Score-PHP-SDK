@@ -43,4 +43,11 @@ class FriendlyScore extends GeneralProvider {
 
 		return $this->jsonDecode($this->getHttpClient()->send($request)->getBody());
 	}
+
+	public function deleteUser() {
+		return $this->send(
+			'DELETE',
+			'api/v2/users/'.$this->__by.'/'.$this->__id.'/delete.json'
+		);
+	}
 }
